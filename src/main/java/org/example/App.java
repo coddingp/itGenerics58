@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -69,6 +70,52 @@ class Main {
         System.out.println(returnsFirstAndLast(charArray));
 
 
+        System.out.printf("Крупнейшее из %d, %d и %d это %d",
+                3, 4, 5, greatest(3, 4, 5));
+        System.out.printf("\n\nКрупнейшее из %.1f, %.1f и %.1f это %.1f",
+                3.3, 3.3, 5.5, greatest(3.3, 4.4, 5.5));
+        System.out.printf("\n\nКрупнейшее из %s, %s и %s это %s",
+                "шапка", "куртка", "туфли",
+                greatest("шапка", "куртка", "туфли"));
+        System.out.println();
+
+//        Integer[]  fiveInTheList = new Integer[5];
+//        fiveInTheList[0]=5;
+//        fiveInTheList[1]=4;
+//        fiveInTheList[2]=3;
+//        fiveInTheList[3]=2;
+//        fiveInTheList[4]=10;
+//
+//        System.out.printf("Крупнейшее из %d, это %d", fiveInTheList, greatestOfArray(0, fiveInTheList));
+
+
+
+    }
+
+//    private static <T extends Comparable<T>> T greatestOfArray(T x, T[] z) {
+//        T max = x; //Пока что, Х максимальное
+//        for (int i = 0; i < z.length; i++) {
+//            if (i + 1 < z.length) {
+//                if (z[i+1].compareTo(max) > 0) {
+//                    max = z[i+1]; // Значит Y больше X
+//                }
+//                if (z[i].compareTo(max) > 0) {
+//                    max = z[i]; // Значит Z больше всех
+//                }
+//            }
+//        }
+//        return max;
+//    }
+
+    private static <T extends Comparable<T>> T greatest(T x, T y, T z) {
+        T max = x; //Пока что, Х максимальное
+        if (y.compareTo(max) > 0) {
+            max = y; // Значит Y больше X
+        }
+        if (z.compareTo(max) > 0) {
+            max = x; // Значит Z больше всех
+        }
+        return max;
     }
 
     //This method prints any collection of any data type.
